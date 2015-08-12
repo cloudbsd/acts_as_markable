@@ -13,8 +13,7 @@ module ActsAsMarkable
       end # module ClassMethods
 
       def mark_by?(marker, action)
-      # self.marks.where(marker: marker, action: action).any?
-        self.marks.find_by(marker: marker, action: action).present?
+        self.marks.exists?(marker: marker, action: action)
       end
 
       def mark_by(marker, action)
